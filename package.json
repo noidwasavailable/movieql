@@ -8,6 +8,7 @@
 	"license": "MIT",
 	"private": null,
 	"dependencies": {
+		"axios": "^0.19.0",
 		"graphql-yoga": "^1.18.2",
 		"node-fetch": "^2.6.0"
 	},

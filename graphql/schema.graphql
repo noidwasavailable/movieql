@@ -9,4 +9,7 @@ type Champion {
 
 type Query {
 	champions: [Champion]!
+	championId(id: String!): Champion
+	championKey(key: String!): Champion
+	championImage(key: String!): String
 }
