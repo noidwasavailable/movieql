@@ -1,80 +1,21 @@
-export let champions = [
-	{
-		id: 0,
-		name: "Ezrael",
-		age: 24,
-		gender: "male"
-	},
-	{
-		id: 1,
-		name: "Braum",
-		age: 20,
-		gender: "male"
-	},
-	{
-		id: 2,
-		name: "Taric",
-		age: 24,
-		gender: "male"
-	},
-	{
-		id: 3,
-		name: "Katarina",
-		age: 22,
-		gender: "female"
-	},
-	{
-		id: 4,
-		name: "Lux",
-		age: 21,
-		gender: "female"
-	},
-	{
-		id: 5,
-		name: "Caitlyn",
-		age: 28,
-		gender: "female"
-	},
-	{
-		id: 6,
-		name: "Karthus",
-		age: 400,
-		gender: "male"
-	},
-	{
-		id: 7,
-		name: "Azir",
-		age: 5000,
-		gender: "male"
-	}
-];
+import fetch from "node-fetch";
 
-export const getChampions = () => champions;
+const API_URL =
+	"https://ddragon.leagueoflegends.com/cdn/9.3.1/data/en_US/champion.json";
 
-export const getById = id => {
-	const filteredById = champions.filter(champ => id === champ.id);
-	return filteredById[0];
-};
+const IMG_URL =
+	"http://raw.communitydragon.org/latest/plugins/rcp-be-lol-game-data/global/default/v1/champion-splashes/";
 
-export const deleteChamp = id => {
-	const cleanedChampions = champions.filter(champ => id !== champ.id);
-	if (champions.length > cleanedChampions.length) {
-		champions = cleanedChampions;
-		return true;
-	} else {
-		return false;
-	}
-};
+export const getChampions = async () => {
+	const champions = await fetch(`${API_URL}`)
+		.then(res => res.json())
+		.then(json => json.data);
 
-export const addChamp = (name, gender, age) => {
-	const newChamp = {
-		id: champions.length + 1,
-		name,
-		gender,
-		age
-	};
+	const championsArray = Object.keys(champions).map(data => champions[data]);
 
-	champions.push(newChamp);
+	console.log("Hi");
+	console.log(championsArray);
+	console.log("BYE");
 
-	return newChamp;
+	return championsArray;
 };

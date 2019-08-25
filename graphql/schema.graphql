@@ -1,15 +1,12 @@
 type Champion {
-	id: Int!
+	id: String!
 	name: String!
-	age: Int!
-	gender: String!
+	key: String!
+	title: String!
+	tags: [String]!
+	blurb: String!
 }
 
 type Query {
 	champions: [Champion]!
-	champ(id: Int!): Champion
-}
-
-type Mutation {
-	addChamp(name: String!, gender: String!, age: Int!): Champion!
 }

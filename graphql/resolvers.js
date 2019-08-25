@@ -1,13 +1,8 @@
-import { getById, getChampions, addChamp } from "../db/db.js";
+import { getChampions } from "../db/db.js";
 
 const resolvers = {
 	Query: {
-		champions: () => getChampions(),
-		champ: (_, { id }) => getById(id)
-	},
-
-	Mutation: {
-		addChamp: (_, { name, gender, age }) => addChamp(name, gender, age)
+		champions: () => getChampions()
 	}
 };
 
