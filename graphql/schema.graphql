@@ -1,0 +1,15 @@
+type Champion {
+	id: Int!
+	name: String!
+	age: Int!
+	gender: String!
+}
+
+type Query {
+	champions: [Champion]!
+	champ(id: Int!): Champion
+}
+
+type Mutation {
+	addChamp(name: String!, gender: String!, age: Int!): Champion!
+}
