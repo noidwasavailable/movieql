@@ -5,6 +5,7 @@ type Champion {
 	title: String!
 	tags: [String]!
 	blurb: String!
+	splash: String!
 }
 
 type Query {

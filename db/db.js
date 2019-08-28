@@ -11,7 +11,19 @@ export const getChampions = async () => {
 		.then(res => res.json())
 		.then(json => json.data);
 
-	const championsArray = Object.keys(champions).map(data => champions[data]);
+	const championsArray = Object.keys(champions).map(data => {
+		let tempArray = champions[data];
+
+		let imgLink = IMG_URL;
+		imgLink += champions[data].key;
+		imgLink += "/";
+		imgLink += champions[data].key;
+		imgLink += "000.jpg";
+
+		tempArray.splash = imgLink;
+		console.log(tempArray);
+		return tempArray;
+	});
 
 	return championsArray;
 };
